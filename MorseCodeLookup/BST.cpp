@@ -45,7 +45,9 @@ void BST::clear(BSTNode *node) {
 }
 
 bool BST::search_(BSTNode *node, char c, string &str) const {
-	if (c == node->character) {
+	if (node == nullptr)
+		return false;
+	else if (c == node->character) {
 		str = node->code;
 		return true;
 	} else if (c > node->character)

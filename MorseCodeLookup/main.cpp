@@ -13,16 +13,29 @@ int main() {
 
 	ifstream morsecode("MorseTable.txt");
 	BST lookup(morsecode);
+	morsecode.close();
 
 	// balance tree for more efficiency
 	lookup.balance();
 	lookup.print();
+	cout << endl << endl;
 
 	string code;
-	if (lookup.search('G', code)) {
-		cout << "G: " << code << endl;
-	}
+	char character;
+	ifstream text("Convert.txt");
 
+	cout << "Converting text: " << endl;
+	while (!text.eof()) {
+		character = text.get();
+		character = (character > 96) ? character - 32 : character;
+		if (lookup.search(character, code))
+			cout << code << " ";
+		else if (character == ' ')
+			cout << "  ";
+		else
+			cout << character;
+	}
+	text.close();
 
 	return 0;
 }

@@ -127,6 +127,7 @@
     <ClInclude Include="BSTNode.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Convert.txt" />
     <Text Include="MorseTable.txt" />
   </ItemGroup>
   <ItemGroup>
